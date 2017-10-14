@@ -32,11 +32,11 @@ def create_logo():
     qr_img = get_qr_image(QR_TEXT, QR_VERSION, ERROR_CORRECTION, BOX_SIZE, BORDER, FIT)
     qr_img_w, qr_img_h = qr_img.size
 
-    logo = get_logo_image(qr_img_h, ERROR_CORRECTION, BOX_SIZE, BORDER, LOGO_FILE)
-    logo_w, logo_h = logo.size
+    logo_img = get_logo_image(qr_img_h, ERROR_CORRECTION, BOX_SIZE, BORDER, LOGO_FILE)
+    logo_img_w, logo_img_h = logo_img.size
 
-    offset = (int((qr_img_w - logo_w) / 2), int((qr_img_h - logo_h) / 2))
-    qr_img.paste(logo, offset)
+    offset = (int((qr_img_w - logo_img_w) / 2), int((qr_img_h - logo_img_h) / 2))
+    qr_img.paste(logo_img, offset)
 
     qr_img.save(OUTPUT_FILE_NAME)
 
