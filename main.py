@@ -11,17 +11,17 @@ LOGO_FILE = "logo.png"
 OUTPUT_FILE_NAME = "output.png"
 
 # http://www.qrcode.com/en/about/version.html
-QR_VERSION = 2
+QR_VERSION = 5
 
 # http://www.qrcode.com/en/about/error_correction.html
 # ex. ERROR_CORRECT_L, ERROR_CORRECT_M, ERROR_CORRECT_Q, ERROR_CORRECT_H
 ERROR_CORRECTION = qrcode.constants.ERROR_CORRECT_H
 
 # Box size in the qr code
-BOX_SIZE = 10
+BOX_SIZE = 8
 
 # The white space around the qr code (BORDER * BOX_SIZE)
-BORDER = 4
+BORDER = 1
 
 # If True, find the best fit (increse the qr version) for the data to avoid data overflow errors
 # ex. True, False
@@ -55,8 +55,10 @@ def get_logo_image(qr_img_h, error_correction, box_size, border, logo_file):
         thumbnail_logo_h = int(thumbnail_logo_h / 6)
     elif error_correction == qrcode.constants.ERROR_CORRECT_M:
         thumbnail_logo_h = int(thumbnail_logo_h / 5)
-    else:
+    elif error_correction == qrcode.constants.ERROR_CORRECT_Q:
         thumbnail_logo_h = int(thumbnail_logo_h / 4)
+    else:
+        thumbnail_logo_h = int(thumbnail_logo_h / 3)
 
     thumbnail_logo_h = thumbnail_logo_h - (thumbnail_logo_h % box_size)
     if (thumbnail_logo_h % (2 * box_size)) == 0:
