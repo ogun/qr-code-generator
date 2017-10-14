@@ -8,7 +8,7 @@ QR_TEXT = "http://www.hurriyet.com.tr"
 LOGO_FILE = "logo.png"
 
 # Output file name
-OUTPU_FILE_NAME = "output.png"
+OUTPUT_FILE_NAME = "output.png"
 
 # http://www.qrcode.com/en/about/version.html
 QR_VERSION = 2
@@ -38,7 +38,7 @@ def create_logo():
     offset = (int((qr_img_w - logo_w) / 2), int((qr_img_h - logo_h) / 2))
     qr_img.paste(logo, offset)
 
-    qr_img.save(OUTPU_FILE_NAME)
+    qr_img.save(OUTPUT_FILE_NAME)
 
 def get_qr_image(qr_text, qr_version, error_correction, box_size, border, fit):
     """ creates qr image """
