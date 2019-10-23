@@ -27,6 +27,7 @@ BORDER = 1
 # ex. True, False
 FIT = True
 
+
 def create_logo():
     """ main function """
     qr_img = get_qr_image(QR_TEXT, QR_VERSION, ERROR_CORRECTION, BOX_SIZE, BORDER, FIT)
@@ -40,6 +41,7 @@ def create_logo():
 
     qr_img.save(OUTPUT_FILE_NAME)
 
+
 def get_qr_image(qr_text, qr_version, error_correction, box_size, border, fit):
     """ creates qr image """
     qr_code = qrcode.QRCode(qr_version, error_correction, box_size, border)
@@ -47,6 +49,7 @@ def get_qr_image(qr_text, qr_version, error_correction, box_size, border, fit):
     qr_code.make(fit=fit)
 
     return qr_code.make_image()
+
 
 def get_logo_image(qr_img_h, error_correction, box_size, border, logo_file):
     "creates logo image"
@@ -69,6 +72,7 @@ def get_logo_image(qr_img_h, error_correction, box_size, border, logo_file):
     logo = Image.open(logo_file, "r")
     logo.thumbnail(new_logo_size, Image.LINEAR)
     return logo
+
 
 if __name__ == "__main__":
     create_logo()
