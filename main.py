@@ -67,7 +67,7 @@ def get_logo_image(qr_img_h, error_correction, box_size, border, logo_file):
     new_logo_size = thumbnail_logo_h, thumbnail_logo_h
 
     logo = Image.open(logo_file, "r")
-    logo.thumbnail(new_logo_size, Image.LINEAR)
+    logo.thumbnail(new_logo_size, Image.BILINEAR)
     return logo
 
 if __name__ == "__main__":
